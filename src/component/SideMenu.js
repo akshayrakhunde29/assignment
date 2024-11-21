@@ -64,7 +64,7 @@ const SideMenu = () => {
                 }}
                 className={`${active === list?.name ? "active" : ""}`}
               >
-                <img src={list?.logo} width={"24px"} height={"24px"} />{" "}
+                <img src={list?.logo} width={"22px"} height={"22px"} />{" "}
                 {list?.name}
               </li>
             );
@@ -72,7 +72,7 @@ const SideMenu = () => {
         </ul>
         <div className="profile-wrapper">
           <div className="profile-block">
-            <img src={profile} width={"45px"} height={"43px"} />
+            <img src={profile} width={"43px"} height={"42px"} />
             <div>
               Ads
               <div>Advertiser Account</div>
