@@ -4,7 +4,7 @@ const upArrow = require("../image/up.png");
 const downArrow = require("../image/down.png");
 const apple = require("../image/apple.png");
 const windos = require("../image/windos.png");
-const store = require("../image/Store.png");
+const store = require("../image/playStore.png");
 const search = require("../image/Vector.png");
 const calender = require("../image/calendar.png");
 
