@@ -7,57 +7,68 @@ const people = require("../image/people.png");
 const report = require("../image/presention.png");
 const user = require("../image/security-user.png");
 const key = require("../image/key.png");
-const logo = require("../image/Logo.png")
+const logo = require("../image/Logo.png");
 
 const SideMenu = () => {
   const [active, setActive] = useState("Dashboard");
+  const [showMenu, setShowMenu] = useState(false);
   const sideMenuData = [
     {
       logo: category,
       name: "Dashboard",
-      navigate: ""
+      navigate: "",
     },
     {
       logo: note,
       name: "Create Campaign",
-      navigate: ""
+      navigate: "",
     },
     {
       logo: chart,
       name: "Analytics",
-      navigate: ""
+      navigate: "",
     },
     {
       logo: people,
       name: "Audience Segment",
-      navigate: ""
+      navigate: "",
     },
     {
       logo: report,
       name: "Reports",
-      navigate: ""
-    }
-  ]
+      navigate: "",
+    },
+  ];
   return (
     <div className="sidebar">
-      <div className="logo">
-        <img src={logo} width={"47px"} height={"46px"} /> 
-        <div> JUUUNO</div>
+      <div className="menu-wrapper">
+        <div className="logo">
+          <img src={logo} width={"47px"} height={"46px"} />
+          <div> JUUUNO</div>
+        </div>
+        <div className="sideMenu" onClick={() => setShowMenu(!showMenu)}>
+          <div className="menu"></div>
+          <div className="menu"></div>
+          <div className="menu"></div>
+        </div>
       </div>
-      <nav>
+      <nav className={`navbar ${showMenu ? "showMenu" : "hideMenu"}`}>
         <ul>
-          {
-            sideMenuData?.map((list, index) => {
-              return (
-                <li
-                  onClick={() => setActive(list?.name)}
-                  className={`${active === list?.name ? "active" : ""}`}
-                >
-                  <img src={list?.logo} width={"24px"} height={"24px"} /> {list?.name}
-                </li>
-              )
-            })
-          }
+          {sideMenuData?.map((list, index) => {
+            return (
+              <li
+                key={index}
+                onClick={() => {
+                  setActive(list?.name);
+                  setShowMenu(false);
+                }}
+                className={`${active === list?.name ? "active" : ""}`}
+              >
+                <img src={list?.logo} width={"24px"} height={"24px"} />{" "}
+                {list?.name}
+              </li>
+            );
+          })}
         </ul>
         <div className="profile-wrapper">
           <div className="profile-block">
@@ -69,7 +80,10 @@ const SideMenu = () => {
           </div>
           <ul>
             <li
-              onClick={() => setActive("Profile")}
+              onClick={() => {
+                setActive("Profile");
+                setShowMenu(false);
+              }}
               className={`${active === "Profile" ? "active" : ""}`}
             >
               <img src={user} width={"24px"} height={"24px"} /> Profile
