@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 const profile = require("../image/pic.png");
 const category = require("../image/Category.png");
 const note = require("../image/note.png");
@@ -39,6 +39,14 @@ const SideMenu = () => {
       navigate: "",
     },
   ];
+  useEffect(() => {
+    if (showMenu) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = ""
+    }
+  }, [showMenu]);
+
   return (
     <div className="sidebar">
       <div className="menu-wrapper">
@@ -53,6 +61,12 @@ const SideMenu = () => {
         </div>
       </div>
       <nav className={`navbar ${showMenu ? "showMenu" : "hideMenu"}`}>
+        <div className="logo mobile-logo" onClick={() => {
+          setShowMenu(false);
+        }}>
+          <img src={logo} width={"47px"} height={"46px"} />
+          <div> JUUUNO</div>
+        </div>
         <ul>
           {sideMenuData?.map((list, index) => {
             return (

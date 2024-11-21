@@ -243,9 +243,18 @@ thead tr th {
   padding-bottom: 10px;
 }
 
+.date-input {
+  width: 0;
+  height: 0;
+  position: absolute;
+  top: 0;
+  background: white;
+  border: none;
+}
+
 tbody tr {
   border-top: 1px solid #E8E8E8;
-  border-bottom: 1px solid #E8E8E8;
+  /* border-bottom: 1px solid #E8E8E8; */
 }
 
 /* Campaign Info */
@@ -413,6 +422,7 @@ tbody tr {
   width: 24px;
   height: 24px;
   margin-right: 4px;
+  cursor: pointer;
 }
 
 .date-wrapper {
@@ -421,6 +431,11 @@ tbody tr {
   border-radius: 4px;
   display: flex;
   align-items: center;
+  justify-content: space-between;
+}
+
+.mobile-logo {
+  display: none;
 }
 
 .date-wrapper>input {
@@ -556,8 +571,16 @@ tbody tr {
 }
 
 @media (min-width: 769px) and (max-width: 1024px) {
-  .sidebar {
+
+  /* .sidebar {
     width: 200px;
+  } */
+  .main-content {
+    padding: 10px 0px;
+  }
+
+  .main-content>h1 {
+    margin-left: 20px;
   }
 
   .status-badge {
@@ -707,6 +730,10 @@ tbody tr {
     margin-top: 0;
     overflow: hidden;
     height: 100%;
+  }
+
+  .mobile-logo {
+    display: flex;
   }
 
   .hideMenu {

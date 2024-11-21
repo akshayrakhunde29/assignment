@@ -1,4 +1,8 @@
+import { useRef, useState } from "react";
 import CustomDropdown from "./CustomDropdown";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
+import moment from "moment";
 
 const upArrow = require("../image/up.png");
 const downArrow = require("../image/down.png");
@@ -9,6 +13,8 @@ const search = require("../image/Vector.png");
 const calender = require("../image/calendar.png");
 
 const Dashboard = ({ data }) => {
+  const dateInputRef = useRef(null)
+  const [selectedDate, setSelectedDate] = useState(null);
   const PlatformIcon = ({ platform }) => {
     switch (platform) {
       case "android":
@@ -38,6 +44,12 @@ const Dashboard = ({ data }) => {
   const campaign = ["Campaign Type", "Campaign Type1", "Campaign Type2"]
   const country = ["Country", "Country1", "Country2"]
   const tracking = ["Tracking", "Tracking1", "Tracking2"]
+
+  const handleCalender = () => {
+    if (dateInputRef.current) {
+      dateInputRef.current.setFocus();
+    }
+  };
   return (
     <div className="main-content">
       <h1>Dashboard</h1>
@@ -59,8 +71,15 @@ const Dashboard = ({ data }) => {
           <CustomDropdown item={country} />
           <CustomDropdown item={tracking} />
           <div className="date-wrapper">
-            <input placeholder="Date Range" type="text" />
-            <img className="calender" src={calender} alt="" />
+            <input placeholder="Date Range" value={selectedDate == null ? "" : moment(selectedDate).format('L')} type="text" />
+            <DatePicker
+              ref={dateInputRef}
+              selected={selectedDate}
+              onChange={(date) => setSelectedDate(date)}
+              placeholderText="Select a date"
+              className="date-input"
+            />
+            <img className="calender" src={calender} onClick={handleCalender} alt="" />
           </div>
           <button className="apply-btn">Apply</button>
         </div>
