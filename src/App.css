@@ -226,6 +226,7 @@ th {
 
 thead tr th {
   padding-bottom: 10px;
+  white-space: nowrap;
 }
 
 .date-input {
@@ -717,6 +718,7 @@ td:last-child {
 
   .metric {
     font-size: 16px;
+    padding-right: 0;
   }
 
   .metric-number {
