@@ -487,6 +487,15 @@ td:last-child {
   width: 26px;
 }
 
+.react-datepicker {
+  position: absolute !important;
+  right: -60px;
+}
+
+.react-datepicker-popper>div {
+  position: relative;
+}
+
 @media screen and (min-width: 1281px) {
   .dashboard {
     font-size: 16px;
