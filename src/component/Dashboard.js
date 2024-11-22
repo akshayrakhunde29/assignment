@@ -88,7 +88,8 @@ const Dashboard = ({ data }) => {
           <table>
             <thead>
               <tr>
-                <th>Campaign Description</th>
+                <th>Campaign</th>
+                <th>Description</th>
                 <th>Platforms</th>
                 <th>Campaign Status</th>
                 <th>Total Clicks</th>
@@ -103,6 +104,8 @@ const Dashboard = ({ data }) => {
                     <div className="item-logo">
                       <img src={item.logo} width={"35px"} height={"30px"} />
                     </div>
+                  </td>
+                  <td>
                     <div className="item-wrapper">
                       <div className="item-name">{item.name}</div>
                       <div className="item-desc">{item.description}</div>
